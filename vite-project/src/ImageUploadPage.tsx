@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from './api'; // Import your API instance
 import { Header, Footer } from './Header-footer';
@@ -38,7 +38,7 @@ function CreatePost() {
       const formData = new FormData();
       formData.append('textContent', textContent);
       if (selectedFile) {
-        formData.append('mediaFile', selectedFile);
+        formData.append('media', selectedFile);
       }
 
       await api.post('/post/create', formData, {
